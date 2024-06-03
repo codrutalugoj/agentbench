@@ -11,9 +11,10 @@ config.sh
 download
 .DS_Store
 # local*
-*.ipynb
+#*.ipynb
 .cache
 src/server/tasks/card_game/result
 .dockerfile
 .dockerfile-cache
 analysis
+.env
