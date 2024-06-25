@@ -187,6 +187,7 @@ class HTTPAgent(AgentClient):
 
     def inference(self, history: List[dict]) -> str:
         for _ in range(3):
+            time.sleep(_ + 5)
             try:
                 body = self.body.copy()
                 body.update(self._handle_history(history))
@@ -194,7 +195,7 @@ class HTTPAgent(AgentClient):
                     resp = requests.post(
                         self.url, json=body, headers=self.headers, proxies=self.proxies, timeout=120
                     )
-                # print(resp.status_code, resp.text)
+    
                 if resp.status_code != 200:
                     # print(resp.text)
                     if check_context_limit(resp.text):
